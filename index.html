@@ -1,0 +1,311 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Advanced PM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A 10-session advanced course for experienced product managers at ACBA. Build AI systems with Claude Code and ship a live product.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141414; --ink-2:#1c1c1c; --ink-3:#242424;
+    --line:#2c2c2c; --text:#ededed; --muted:#a8a8a8;
+    --accent:#00a688;        /* ACBA primary, from acba.am */
+    --accent-soft:#8ad6c8;   /* ACBA light tint, from acba.am */
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ink);color:var(--text);
+    font-family:'Montserrat',-apple-system,'Segoe UI',sans-serif;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+
+  .hero{padding:88px 0 64px;border-bottom:1px solid var(--line)}
+  .herogrid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:start}
+  .herobrand{justify-self:end;align-self:start;padding:22px 26px;
+    background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);text-align:center}
+  .herobrand img{display:block;width:196px;height:auto}
+  .herobrand .cap{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);
+    font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .lockup{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:14px;
+    letter-spacing:.02em;color:var(--text);margin-bottom:40px}
+  .lockup .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+  h1{font-size:clamp(44px,7vw,76px);font-weight:800;line-height:1.02;letter-spacing:-.02em;margin:0 0 14px}
+  h1 .a{color:var(--accent-soft)}
+  .subtitle{font-size:clamp(19px,2.6vw,26px);font-weight:600;color:var(--text);margin:0 0 22px}
+  .lede{max-width:62ch;color:var(--muted);font-size:17px;margin:0}
+  .lede strong{color:var(--text);font-weight:600}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:none;padding-bottom:88px}
+  .kicker{font-size:14px;font-weight:700;color:var(--accent-soft);margin:0 0 10px}
+  h2{font-size:clamp(26px,3.6vw,34px);font-weight:800;letter-spacing:-.01em;margin:0 0 26px}
+  h2+.sectionnote{margin-top:-14px}
+  .sectionnote{color:var(--muted);max-width:68ch;margin:0 0 26px}
+
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+  .fact{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+  .fact .f-label{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px}
+  .fact .f-value{font-weight:600;font-size:15.5px;line-height:1.45}
+
+  .benefits{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+  .benefits li{position:relative;padding-left:26px;color:var(--text);font-size:15.5px}
+  .benefits li::before{content:"";position:absolute;left:0;top:9px;width:12px;height:12px;
+    border-radius:3px;background:var(--accent)}
+  .benefits li span{color:var(--muted)}
+
+  .week0{background:var(--ink-2);border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:var(--radius);padding:24px 26px}
+  .week0 h3{margin:0 0 8px;font-size:18px;font-weight:700}
+  .week0 p{margin:0;color:var(--muted);max-width:75ch}
+
+  .block{margin:0 0 40px}
+  .block:last-child{margin-bottom:0}
+  .blockhead{display:flex;align-items:baseline;gap:14px;margin:0 0 16px;
+    border-bottom:1px solid var(--line);padding-bottom:10px}
+  .blockhead .range{font-size:14px;font-weight:700;color:var(--accent-soft);white-space:nowrap}
+  .blockhead h3{margin:0;font-size:20px;font-weight:700}
+  .sessions{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .session{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
+  .session .num{display:inline-block;font-weight:700;font-size:13.5px;color:var(--accent-soft);margin-bottom:6px}
+  .session h4{margin:0 0 10px;font-size:17.5px;font-weight:700;line-height:1.3}
+  .session ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px}
+  .session li{margin:5px 0}
+  .session li.live{color:var(--text)}
+  .session li.live::marker{color:var(--accent-soft)}
+  .tag{display:inline-block;font-size:12.5px;font-weight:600;color:var(--accent-soft);
+    background:rgba(0,166,136,.14);border-radius:6px;padding:3px 10px;margin-left:8px;vertical-align:middle}
+
+  .capnote{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 26px;margin-top:28px}
+  .capnote h3{margin:0 0 8px;font-size:18px;font-weight:700}
+  .capnote p{margin:0;color:var(--muted);max-width:78ch}
+  .capnote strong{color:var(--text);font-weight:600}
+
+  footer{padding:44px 0 72px}
+  footer .who{font-weight:700;font-size:16px;margin:0 0 4px}
+  footer .role{color:var(--muted);margin:0 0 18px;font-size:15px}
+  footer .fine{color:var(--muted);font-size:13px;margin:0;max-width:78ch}
+
+  @media (max-width:720px){
+    .benefits{grid-template-columns:1fr}
+    .sessions{grid-template-columns:1fr}
+    .hero{padding:64px 0 48px}
+    .herogrid{grid-template-columns:1fr;gap:32px}
+    .herobrand{justify-self:start}
+    .herobrand img{width:150px}
+  }
+  @media print{
+    body{background:#fff;color:#111}
+    .fact,.session,.week0,.capnote,.herobrand{background:#fafafa;border-color:#ddd}
+    .herobrand img{filter:invert(1) hue-rotate(180deg)}
+    .lede,.sectionnote,.session ul,.fact .f-label,.capnote p,footer .role,footer .fine{color:#444}
+    .session li.live,.benefits li,.capnote strong,.lede strong{color:#111}
+    h1 .a,.kicker,.blockhead .range,.session .num,.tag{color:#00796a}
+    section{page-break-inside:avoid}
+  }
+</style></head><body>
+
+<header class="hero">
+  <div class="wrap">
+   <div class="herogrid">
+    <div>
+    <div class="lockup"><span class="dot"></span>Product &amp; Technology</div>
+    <h1>Advanced <span class="a">PM</span></h1>
+    <p class="subtitle">AI systems for experienced product managers</p>
+    <p class="lede">A 10-session course for product managers who already run products. Here you learn to run <strong>AI systems</strong>: skills, agents, multi-agent workflows, MCP connections and quality judges, all through Claude Code. Every case is invented for teaching, so no customer record ever leaves the bank. You finish with <strong>a working product you built and shipped yourself</strong>.</p>
+    </div>
+    <div class="herobrand">
+      <img src="acba-logo.svg" alt="ACBA Bank" width="196" height="65">
+      <div class="cap">10 sessions &middot; 2026</div>
+    </div>
+   </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>How the course runs</h2>
+    <div class="facts">
+      <div class="fact"><div class="f-label">Sessions</div><div class="f-value">10 sessions, 2 hours each, twice a week for 5 weeks</div></div>
+      <div class="fact"><div class="f-label">Format</div><div class="f-value">In person, in one room, with your own laptop</div></div>
+      <div class="fact"><div class="f-label">Method</div><div class="f-value">Every session is half teaching, half live building with Claude Code</div></div>
+      <div class="fact"><div class="f-label">Language</div><div class="f-value">Delivered in Armenian, all materials in English</div></div>
+      <div class="fact"><div class="f-label">Milestone</div><div class="f-value">One finished artifact per session, reviewed against a rubric</div></div>
+      <div class="fact"><div class="f-label">Who it is for</div><div class="f-value">Experienced PMs, POs and business analysts. No AI experience needed.</div></div>
+      <div class="fact"><div class="f-label">Data rule</div><div class="f-value">Synthetic data only. No customer records, no KYC files, no internal models.</div></div>
+      <div class="fact"><div class="f-label">Before session 1</div><div class="f-value">Week 0: a short assessment and a guided setup sprint</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">Why this course</p>
+    <h2>What you get that a general AI course does not give</h2>
+    <ul class="benefits">
+      <li>Built for a <b>bank</b>: <span>every case is invented, and the data boundary is taught in the first session, not the last</span></li>
+      <li>You <b>build in every session</b>: <span>half of every two hours is live creation, and the task is always prescribed</span></li>
+      <li>Taught from <b>production AI systems</b> <span>running today, not textbook examples</span></li>
+      <li>A <b>rubric on every milestone</b>: <span>you find out where your work is weak while there is still time to fix it</span></li>
+      <li><b>Least privilege and prompt injection</b> <span>are taught as product decisions, not as an IT afterthought</span></li>
+      <li>You <b>never hand-write code</b>: <span>you direct, review and verify while Claude Code builds. You still ship real software.</span></li>
+      <li>Every claim needs <b>a source or a flag</b>: <span>the habit that makes AI output usable in a regulated business</span></li>
+      <li>You leave with a <b>personal AI operating system</b>: <span>skills, agents, a judge and a shipped product</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">Curriculum</p>
+    <h2>The 10 sessions</h2>
+    <p class="sectionnote">Four blocks. Sessions 1 to 3 build the operator foundations. Sessions 4 to 6 run the product lifecycle with AI. Sessions 7 to 9 build the advanced systems: agents, multi-agent workflows and quality judges. Session 10 ships.</p>
+
+    <div class="week0" style="margin-bottom:36px">
+      <h3>Week 0: assessment and setup sprint</h3>
+      <p>Before session 1 you complete a short AI-experience assessment and a guided setup checklist: Claude, Claude Code, VS Code and a GitHub account. Tables are paired by experience level, so nobody waits and nobody drowns. You arrive at session 1 ready to build.</p>
+    </div>
+
+    <div class="block">
+      <div class="blockhead"><span class="range">Sessions 1 to 3</span><h3>Operator foundations</h3></div>
+      <div class="sessions">
+        <div class="session">
+          <span class="num">Session 1</span>
+          <h4>How AI really works, and where it breaks</h4>
+          <ul>
+            <li>Tokens, context windows, hallucination, and why fluent is not true</li>
+            <li>Brilliant then useless: finding the jagged edge for your own tasks</li>
+            <li>Your data red lines: what never goes into a prompt, and the one question to ask before you paste</li>
+            <li class="live">Live build: your workspace running, and your first bounded prompt with a checked source</li>
+            <li>You leave with: a working setup and an AI work card you can defend</li>
+          </ul>
+        </div>
+        <div class="session">
+          <span class="num">Session 2</span>
+          <h4>Your workspace and context engineering</h4>
+          <ul>
+            <li>Claude Code as an operator: it reads and writes real files inside one folder you chose</li>
+            <li>CLAUDE.md: standing rules that load before you type, and why the narrowest file wins</li>
+            <li>The permission gate: what actually says no, sorted by what it costs to undo</li>
+            <li class="live">Live build: your rules file, your project folder, and your first automation</li>
+            <li>You leave with: an AI workspace configured around your real job</li>
+          </ul>
+        </div>
+        <div class="session">
+          <span class="num">Session 3</span>
+          <h4>Skills: package your expertise</h4>
+          <ul>
+            <li>Turn work you repeat every week into a skill Claude runs on demand</li>
+            <li>Skill design: instructions, worked examples, and the guardrails that hold output to a standard</li>
+            <li>Why the one-line description is the whole matching surface</li>
+            <li class="live">Live build: a PRD writer and a decision-brief skill, from zero</li>
+            <li>You leave with: two working skills you use the next morning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="blockhead"><span class="range">Sessions 4 to 6</span><h3>The product lifecycle, with AI</h3></div>
+      <div class="sessions">
+        <div class="session">
+          <span class="num">Session 4</span>
+          <h4>Research to an evidence-backed spec</h4>
+          <ul>
+            <li>Synthesis that does not invent: it smooths, it fills gaps, and it sounds certain doing it</li>
+            <li>Cite or flag: every problem claim maps to a source, or it is marked as an assumption</li>
+            <li>Build a persona, then attack it with the evidence you actually have</li>
+            <li class="live">Live build: an opportunity map and a one-page PRD with acceptance criteria and a negative flow</li>
+            <li>You leave with: a spec where a reviewer can trace every claim</li>
+          </ul>
+        </div>
+        <div class="session">
+          <span class="num">Session 5</span>
+          <h4>Data to a decision, without SQL</h4>
+          <ul>
+            <li>Three ways to get data to AI, and why read-only is the rule you own</li>
+            <li>The silent wrong number: state the population, denominator, period and filters, every time</li>
+            <li>Significance and confidence in plain language, and the traps AI falls into</li>
+            <li class="live">Live build: a verified decision brief, with one number reproduced by hand</li>
+            <li>You leave with: a defensible call, and an alternative explanation you tested</li>
+          </ul>
+        </div>
+        <div class="session">
+          <span class="num">Session 6</span>
+          <h4>Communicating and presenting</h4>
+          <ul>
+            <li>One truth, three audiences: what an executive, a peer and an engineer each need first</li>
+            <li>Lead with the answer, then the evidence, then the ask</li>
+            <li>Strip the generic AI tone and keep your own voice</li>
+            <li class="live">Live build: an executive update and a one-pager that shares as a link and prints clean</li>
+            <li>You leave with: a shareable one-pager and a clean PDF of your own work</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="blockhead"><span class="range">Sessions 7 to 9</span><h3>Advanced AI systems</h3></div>
+      <div class="sessions">
+        <div class="session">
+          <span class="num">Session 7</span>
+          <h4>Agents and subagents</h4>
+          <ul>
+            <li>An agent is a loop, not an answer. The first question is what makes it stop.</li>
+            <li>Roles, boundaries and failure modes: what to delegate and what to keep</li>
+            <li>Subagents: fan the reading out, keep the reviewable thread short</li>
+            <li class="live">Live build: a reviewer agent that checks your own documents before your stakeholders do</li>
+            <li>You leave with: a working agent and a stated boundary for what it may touch</li>
+          </ul>
+        </div>
+        <div class="session">
+          <span class="num">Session 8</span>
+          <h4>Multi-agent systems, MCP and the security line</h4>
+          <ul>
+            <li>Orchestration patterns: pipeline, fan-out, verifier, synthesis, and where each one pays</li>
+            <li>MCP and connectors: how AI reaches real systems, and why least privilege is a product decision</li>
+            <li>Prompt injection: anything the system reads in is untrusted input, including a customer message</li>
+            <li class="live">Live build: a three-agent pipeline, research to draft to critique, with a planted injection</li>
+            <li>You leave with: a multi-agent workflow and a permission model you can take to risk</li>
+          </ul>
+        </div>
+        <div class="session">
+          <span class="num">Session 9</span>
+          <h4>AI features and the judge</h4>
+          <ul>
+            <li>Spec an AI feature in five fields: task, inputs, boundary, owner, fallback</li>
+            <li>Quality against cost against latency, and the honest case for not using AI</li>
+            <li>Score it, do not dictate it: rubrics, an AI judge, and seeded bad outputs that prove it works</li>
+            <li class="live">Live build: a judge for your own feature, with a planted failure it has to catch</li>
+            <li>You leave with: an evaluated proposal with measured results, not claimed ones</li>
+          </ul>
+        </div>
+        <div class="session">
+          <span class="num">Session 10</span>
+          <h4>Capstone: build, ship, demo<span class="tag">Studio</span></h4>
+          <ul>
+            <li>Scope like a knife: one user, one task, one magic moment</li>
+            <li>Build the core with mock data, then the QA pass and the guardrails</li>
+            <li class="live">Live build: your prototype, running, with its empty and error states</li>
+            <li>Demo to the room in four beats, then the release decision: what ships, what waits, what it cannot do</li>
+            <li>You leave with: a working product and a release pack with the limits written down</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="capnote">
+      <h3>The capstone thread</h3>
+      <p>You pick your product idea in session 1 and shape it through the homework. The scope locks at session 5. From there every artifact feeds the finish: the PRD from session 4 defines it, the decision brief from session 5 justifies it, the one-pager from session 6 sells it, the agent and the judge from sessions 7 to 9 run inside it, and session 10 assembles and ships it. You graduate with <strong>a product you built, a system that runs it, and a release pack you could put in front of a risk committee</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="who">Tigran Sargsyan</p>
+    <p class="role">Product operations and AI automation, Picsart. Built 120+ AI agents and 20+ products in production. A product manager, not an engineer.</p>
+    <p class="fine">Every case, dataset and number used in this course is invented for teaching. No customer records, no KYC or AML files, and no internal models are used at any point. Teaching rubrics are classroom checks, not professional certification, bank policy or regulatory approval.</p>
+  </div>
+</footer>
+</body></html>
