@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<title>Advanced PM</title>
+<title>Advanced AI for PMs</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="A 10-session advanced course for experienced product managers at ACBA. Build AI systems with Claude Code and ship a live product.">
+<meta name="description" content="A 10-session course on AI agents, prototyping and product building for experienced product managers at ACBA. Build AI systems with Claude Code and ship a live product.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,18 +20,22 @@
   .wrap{max-width:1060px;margin:0 auto;padding:0 28px}
 
   .hero{padding:88px 0 64px;border-bottom:1px solid var(--line)}
-  .herogrid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:start}
+  .herogrid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
   .herobrand{justify-self:end;align-self:start;padding:22px 26px;
     background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);text-align:center}
   .herobrand img{display:block;width:196px;height:auto}
   .herobrand .cap{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);
     font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-  .lockup{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:14px;
-    letter-spacing:.02em;color:var(--text);margin-bottom:40px}
-  .lockup .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
   h1{font-size:clamp(44px,7vw,76px);font-weight:800;line-height:1.02;letter-spacing:-.02em;margin:0 0 14px}
   h1 .a{color:var(--accent-soft)}
   .subtitle{font-size:clamp(19px,2.6vw,26px);font-weight:600;color:var(--text);margin:0 0 22px}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
+  .pillar{background:var(--ink-2);border:1px solid var(--line);border-top:3px solid var(--accent);
+    border-radius:var(--radius);padding:24px 24px 26px}
+  .pillar .pn{font-family:inherit;font-size:12px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent-soft);margin-bottom:10px}
+  .pillar h3{margin:0 0 8px;font-size:clamp(20px,2.4vw,26px);font-weight:800;letter-spacing:-.01em;line-height:1.1}
+  .pillar p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
   .lede{max-width:62ch;color:var(--muted);font-size:17px;margin:0}
   .lede strong{color:var(--text);font-weight:600}
 
@@ -91,12 +95,15 @@
     .sessions{grid-template-columns:1fr}
     .hero{padding:64px 0 48px}
     .herogrid{grid-template-columns:1fr;gap:32px}
+    .pillars{grid-template-columns:1fr;margin-top:36px}
     .herobrand{justify-self:start}
     .herobrand img{width:150px}
   }
   @media print{
     body{background:#fff;color:#111}
-    .fact,.session,.week0,.capnote,.herobrand{background:#fafafa;border-color:#ddd}
+    .fact,.session,.week0,.capnote,.herobrand,.pillar{background:#fafafa;border-color:#ddd}
+    .pillar{border-top-color:#00796a}
+    .pillar p{color:#444}
     .herobrand img{filter:invert(1) hue-rotate(180deg)}
     .lede,.sectionnote,.session ul,.fact .f-label,.capnote p,footer .role,footer .fine{color:#444}
     .session li.live,.benefits li,.capnote strong,.lede strong{color:#111}
@@ -109,8 +116,7 @@
   <div class="wrap">
    <div class="herogrid">
     <div>
-    <div class="lockup"><span class="dot"></span>Product &amp; Technology</div>
-    <h1>Advanced <span class="a">PM</span></h1>
+    <h1>Advanced <span class="a">AI</span> for PMs</h1>
     <p class="subtitle">AI systems for experienced product managers</p>
     <p class="lede">A 10-session course for product managers who already run products. Here you learn to run <strong>AI systems</strong>: skills, agents, multi-agent workflows, MCP connections and quality judges, all through Claude Code. Every case is invented for teaching, so no customer record ever leaves the bank. You finish with <strong>a working product you built and shipped yourself</strong>.</p>
     </div>
@@ -118,6 +124,14 @@
       <img src="acba-logo.svg" alt="ACBA Bank" width="196" height="65">
       <div class="cap">10 sessions &middot; 2026</div>
     </div>
+   </div>
+   <div class="pillars">
+     <div class="pillar"><div class="pn">Block 1</div><h3>AI Agents</h3>
+       <p>Agents, subagents and multi-agent workflows that do real product work, with a permission model you can take to risk.</p></div>
+     <div class="pillar"><div class="pn">Block 2</div><h3>Prototyping</h3>
+       <p>Turn a spec into a running prototype in the room, with mock data, error states and a judge that scores it.</p></div>
+     <div class="pillar"><div class="pn">Block 3</div><h3>Product Building</h3>
+       <p>Ship a working product you built yourself, with the research, the decision and the release pack behind it.</p></div>
    </div>
   </div>
 </header>
